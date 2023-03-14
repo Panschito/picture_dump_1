@@ -13,9 +13,9 @@ class MainController{
 	}
 
     public function getOrders(){
-        $this->view->orders= $this->model->getOrders();
+      /*  $this->view->orders= $this->model->getOrders();
         $this->view->user= $_SESSION['user'];
-
+*/
     }
 
     public function run(){

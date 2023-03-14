@@ -9,7 +9,7 @@ class DBConnection {
 
 	function __construct(
 		$host = '127.0.0.1', 
-		$dbName = 'projekt',
+		$dbName = 'picture-dump',
 		$user = 'admin', 
 		$password = '123'
 	) {

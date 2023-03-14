@@ -3,17 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Registration</title>
+	<title>PICTURE-DUMP</title>
 
 </head>
 <body>
         <div>
 			<div>
 				<p>what</p>
-                <div>
-                <a href="changeaddress.php"> 
-                <button type="submit" name="changeAddress" value="changeAddress">Change your Address</button></a>
-                </div>
+                
                 
                 
 			</div>
@@ -24,47 +21,38 @@
                 </div>
 
             <div>
-                <h1>Orders</h1>
-                 
-                <?php
-           
-                foreach ($this->view->orders as $value) {
-                    echo "<div>";
-                    echo "<span>";
-                    echo $value['notes'];
-                    echo "        ";
-                    echo "</span>";
-                    echo "<span>";
-                    echo $value['work'];
-                    echo "        ";
-                    echo "</span>";
-                    echo "<span>";
-                    echo $this->view->user->lastName;
-                    echo "        ";
-                    echo "</span>";
-                    echo "<span>";
-                    echo $this->view->user->firstName;
-                    echo "        ";
-                    echo "</span>";
-                    echo "</div>";
-                    
-                }
-                
-                ?>
+            <h1>Upload einer Datei</h1>
+            <form method="POST" enctype="multipart/form-data">
+ 
+    <label>Bitte wählen sie eine Datei zum hochladen aus.</label>
+    <input name="datei" type="file" value="" />
 
-                
+    <br />
 
+    <input type="submit" value="Datei hochladen" />
 
-            </div>
-            <div>
-                <a href="./order.php"> 
-                <button>auftrag erstellen</button></a>
-            </div>
-            <div>
-                <button>auftrag löschen</button>
-        
-            </div>
+    </form>
+
+        <?php
+
+        if (!empty($_FILES)) {
+
+         // horizontale Linie
+        echo "<hr />";
+        echo "<h2>Folgende Datei wurde gesendet.</h2>";
+
+         echo "<pre>\r\n";
+        echo htmlspecialchars(print_r($_FILES));
+        echo "</pre>\r\n";
+        }
+
+        ?>
         </div>
+        <nav>
+        <button type="submit" name="newestButton" value="newestButton">Neuste Bilder</button>
+        <button type="submit" name="topTenButton" value="topTenButton">Top 10</button>
+        <button type="submit" name="ownPicsButton" value="ownPicsButton">Eigene Bilder</button>
+    </nav>
 
 
 </body>

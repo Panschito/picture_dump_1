@@ -1,0 +1,12 @@
+
+
+body{
+    background-color: grey;
+}
+
+
+/*index.php*/
+.loginBox{
+    display: flex;
+    align-items: end;
+}

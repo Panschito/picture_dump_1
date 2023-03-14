@@ -11,7 +11,7 @@ class LoginModel {
 	}
 
 public function getUser($email){
-	$statement = $this->connection->prepare('SELECT * FROM customer WHERE email = :email');
+	$statement = $this->connection->prepare('SELECT * FROM user WHERE email = :email');
 	$statement->execute(array('email'=> $email));
 
 	return $statement->fetchObject();

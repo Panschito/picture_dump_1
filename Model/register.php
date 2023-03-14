@@ -10,27 +10,21 @@ class RegisterModel {
 		$this->connection = $db->getConnection();
 	}
 
-	public function createAddress($params) {
-		$statement =$this->connection->prepare("INSERT INTO address (street,streetNr,city) VALUES (:street,:streetNr,:city)");
-		$result =$statement->execute(array('street'=>$params['street'], 'streetNr'=>$params['streetNr'],'city'=> $params['city']));
-
-		return $this->connection->lastInsertId();
-	}
 
 	public function createUser($params) {
-		$addressId = $this->createAddress($params);
+		
 		
 
 		$password_hash = password_hash($params['pwd'], PASSWORD_DEFAULT);
-		$statement = $this->connection->prepare("INSERT INTO customer (firstName,lastName,email,password,role,addressId) VALUES (:firstName, :lastName,:email,:pwd,'customer',:addressId)");
-		$result = $statement->execute(array('firstName'=> $params['firstName'], 'lastName'=> $params['lastName'], 'email'=> $params['email'], 'pwd'=> $password_hash,'addressId'=>$addressId));
+		$statement = $this->connection->prepare("INSERT INTO user (user_name,email,password) VALUES (:user_name,:email,:password)");
+		$result = $statement->execute(array('user_name'=> $params['userName'],'email'=> $params['email'], 'password'=> $password_hash));
 
 	
 							
 		
 	}
 	public function validateEmail($email){
-		$statement = $this->connection->prepare("SELECT * FROM  customer WHERE email = :email");
+		$statement = $this->connection->prepare("SELECT * FROM  user WHERE email = :email");
 		$result = $statement->execute(array('email'=> $email));
 		$user = $statement->fetch();
 
