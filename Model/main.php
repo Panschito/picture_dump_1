@@ -10,10 +10,16 @@ class MainModel {
 		$this->connection = $db->getConnection();
 	}
 
-    public function getOrders() {
+    public function getUploads() {
         $user= $_SESSION['user'];
-        $statement =$this->connection->prepare("SELECT * FROM orders WHERE addressId = :addressId");
-        $statement->execute(array('addressId'=> $user->addressId));
+        $statement =$this->connection->prepare("SELECT * FROM pictures WHERE user_id = :user_id");
+        $statement->execute(array('user_id'=> $user->user_id));
         return $statement->fetchAll();
+    }
+    public function makeUpload(){
+        $statement1= $this->connection->prepare("SELECT user_id FROM user WHERE user_name= :userName;");
+        $statement1->execute(array(
+        $statement = $this->connection->prepare("INSERT INTO pictures (user_id,picture,pictureName,public) VALUES (:user_id,:email,:password)");
+		$result = $statement->execute(array('user_name'=> $params['userName'],'email'=> $params['email'], 'password'=> $password_hash));
     }
 }
