@@ -22,36 +22,29 @@
 
             <div>
             <h1>Upload einer Datei</h1>
-            <form method="POST" enctype="multipart/form-data">
  
-    <label>Bitte wählen sie eine Datei zum hochladen aus.</label>
-    <input name="datei" type="file" value="" />
+ <hr />
 
-    <br />
+ <form method="POST" enctype="multipart/form-data">
 
-    <input type="submit" value="Datei hochladen" />
+     <label>Bitte wählen sie eine Datei zum hochladen aus.</label>
+     <input name="datei" type="file" value="" />
 
-    </form>
+     <br />
 
-        <?php
+     <input type="submit" value="Datei hochladen" />
 
-        if (!empty($_FILES)) {
+ </form>
 
-         // horizontale Linie
-        echo "<hr />";
-        echo "<h2>Folgende Datei wurde gesendet.</h2>";
+ <?php require_once("./lib/upload.php");?>
 
-         echo "<pre>\r\n";
-        echo htmlspecialchars(print_r($_FILES));
-        echo "</pre>\r\n";
-        }
-
-        ?>
+</body>
         </div>
         <nav>
         <button type="submit" name="newestButton" value="newestButton">Neuste Bilder</button>
         <button type="submit" name="topTenButton" value="topTenButton">Top 10</button>
         <button type="submit" name="ownPicsButton" value="ownPicsButton">Eigene Bilder</button>
+        <button type="submit" name="galleryButton" value="galleryButton">Gallery</button>
     </nav>
 
 

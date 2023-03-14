@@ -16,10 +16,39 @@ class MainModel {
         $statement->execute(array('user_id'=> $user->user_id));
         return $statement->fetchAll();
     }
-    public function makeUpload(){
-        $statement1= $this->connection->prepare("SELECT user_id FROM user WHERE user_name= :userName;");
-        $statement1->execute(array(
-        $statement = $this->connection->prepare("INSERT INTO pictures (user_id,picture,pictureName,public) VALUES (:user_id,:email,:password)");
-		$result = $statement->execute(array('user_name'=> $params['userName'],'email'=> $params['email'], 'password'=> $password_hash));
+    public function uploadFiles($params){
+        if (!empty($_FILES)) {
+       
+           // horizontale Linie
+           echo "<hr />";
+           echo "<h2>Folgende Datei wurde gesendet.</h2>";
+       
+           echo "<pre>\r\n";
+           echo htmlspecialchars(print_r($_FILES));
+           echo "</pre>\r\n";
+           
+       
+           $picturePath = "Resources/pictures/".$params['userName']."/original";
+           $pictureName = $picturePath . basename(urlencode($_FILES["datei"]["name"]));
+       
+           // Speichern des Bildes im Dateisystem
+           if (move_uploaded_file($_FILES["datei"]["tmp_name"], $pictureName)) {
+               echo "Datei wurde erfolgreich hochgeladen.";
+               var_dump($_SESSION);
+               var_dump($params);
+             
+              
+           } else {
+               echo "Fehler beim Hochladen der Datei.";
+           }
+       
+          /* // Direkte Anzeige eines Bildes
+          if(@is_array(getimagesize($pictureName))){
+              echo "<img src=".$pictureName ." width=\"200\" />";
+           } 
+       */
+        }
+   
     }
+    
 }
