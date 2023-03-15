@@ -18,8 +18,12 @@ class MainController{
 */
     }
 
+   
+
     public function run(){
         $this->getOrders();
+       
+        
    
 
 		require_once("./View/main.php");

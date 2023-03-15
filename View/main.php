@@ -27,16 +27,17 @@
 
  <form method="POST" enctype="multipart/form-data">
 
-     <label>Bitte wählen sie eine Datei zum hochladen aus.</label>
+     <label>Choose a Image to Upload</label>
      <input name="datei" type="file" value="" />
 
      <br />
 
      <input type="submit" value="Datei hochladen" />
+     <?php require_once ("Model/upload.php")?>
 
  </form>
 
- <?php require_once("./lib/upload.php");?>
+
 
 </body>
         </div>
