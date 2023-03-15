@@ -2,6 +2,8 @@
 
 require_once('./lib/database.php');
 
+
+
 class MainModel {
 	private $connection;
 
@@ -17,6 +19,8 @@ class MainModel {
         return $statement->fetchAll();
     }
    
+   
  
     
 }
+

@@ -10,8 +10,8 @@ class DBConnection {
 	function __construct(
 		$host = '127.0.0.1', 
 		$dbName = 'picture-dump',
-		$user = 'admin', 
-		$password = '123'
+		$user = 'root', 
+		$password = '9804Panji'
 	) {
 		$this->host = $host;
 		$this->dbName = $dbName;
