@@ -17,17 +17,27 @@ class MainController{
         $this->view->user= $_SESSION['user'];
 */
     }
+    public function onUpload(){
+        $this->model->uploadFiles();
+    }
+    public function uploadToDatabase(){
+        $this->model->doPathUpload();
+    }
 
    
 
     public function run(){
         $this->getOrders();
+        $this->onUpload();
+        //$this->uploadToDatabase();
+       
        
        
         
    
-
+        
 		require_once("./View/main.php");
+        
 		
     }
 }

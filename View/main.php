@@ -33,7 +33,7 @@
      <br />
 
      <input type="submit" value="Datei hochladen" />
-     <?php require_once ("Model/upload.php")?>
+    
 
  </form>
 
