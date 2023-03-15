@@ -1,12 +1,11 @@
-
-
-body{
+body {
     background-color: grey;
 }
 
 
 /*index.php*/
-.loginBox{
+
+#loginBox {
     display: flex;
     align-items: end;
 }
