@@ -7,28 +7,38 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login</title>
+	<link
+      href="./View/custom.css"
+      rel="stylesheet">
 </head>
 <body>
-	<form method="post">
-		<label for="email-field">E-Mail</label>
-		<input type="email" id="email" name="email" placeholder="Max@mustermann.com" required maxlength="150" value="<?php echo (isset($_POST["email"]) ? $_POST["email"] : "");?>">
-		<br>
-		<label for="password">Password</label>
-		<input type="password" id="password"  name="pwd" placeholder="Password" required
-		value="<?php echo (isset($_POST["pwd"]) ? $_POST["pwd"] : "");?>">
-		<br>
-		<button type="submit" name="loginButton" value="login">LOGIN</button>
+	<div id="login-form">
+	
+		<form  method="post">
+			<label for="email-field">E-Mail</label>
+			<input class="form-group" type="email" id="email" name="email" placeholder="Max@mustermann.com" required maxlength="150" value="<?php echo (isset($_POST["email"]) ? $_POST["email"] : "");?>">
+			<br>
+			<label for="password">Password</label>
+			<input class="form-group" type="password" id="password"  name="pwd" placeholder="Password" required
+			value="<?php echo (isset($_POST["pwd"]) ? $_POST["pwd"] : "");?>">
+			<br>
+			<button class="btn btn-primary" type="submit" name="loginButton" value="login">LOGIN</button>
 
-	</form>
-	<div>
-				<a href="index.php">
-                <button type="submit" name="back" value="back">Back</button>
-				<?php if($this->view->isLoggedIn == false){
-					echo "Password or Email is Incorrect";
-				}
-				?>
+		</form>
+		<div id="login-button">
+					<a href="index.php">
+					<button class="btn btn-primary" type="submit" name="back" value="back">Back</button>
+					<?php if($this->view->isLoggedIn == false){
+						echo "Password or Email is Incorrect";
+					}
+					?>
 
-			</div>
+				</div>
+		</div>
+	
+
+	
+		
 
 </body>
 </html>
