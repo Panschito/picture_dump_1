@@ -14,6 +14,7 @@ class MainController{
 
     public function getPictures(){
         $this->view->pictures= $this->model->getAllPictures();
+        $this->view->likes=$this->model->getLikes();
         
 
     }
@@ -23,6 +24,9 @@ class MainController{
     public function uploadToDatabase(){
         $this->model->doPathUpload();
     }
+    public function like(){
+        $this->model->updateLike();
+    }
 
 
    
@@ -30,6 +34,7 @@ class MainController{
     public function run(){
         $this->getPictures();
         $this->onUpload();
+        $this->like();
         
         //$this->uploadToDatabase();
        

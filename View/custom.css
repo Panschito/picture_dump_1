@@ -1,5 +1,6 @@
 body {
     background-color: grey;
+    font-family: sans-serif;
 }
 
 
@@ -23,6 +24,24 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+
+/*register*/
+
+#register-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#register-back-button {
+    display: flex;
+    justify-content: center;
+}
+
+.form-group {
+    background-color: white;
 }
 
 

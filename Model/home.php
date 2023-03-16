@@ -4,7 +4,7 @@ require_once('./lib/database.php');
 
 
 
-class IndexModel {
+class HomeModel {
 	private $connection;
 
 	function __construct() {

@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-     <title>PICTURE-DUMP</title>
-        <!-- Required meta tags -->
+<?php 
+
+
+ ?>
+
+<!DOCTYPE html>
+
+<html>
+<head>  <!-- Required meta tags -->
         <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -30,51 +34,32 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+
     <link
       href="./View/custom.css"
       rel="stylesheet"
     />
-
 </head>
-
 <body>
     <div>
-        <div>
-            
-        <div id="logout-main-button">
-            <a href="logout.php">
-                <button class="btn btn-primary" type="submit" name="logout" value="logout">Logout</button></a>
+    
+    <div id="loginBox">
+        <a href="register.php"> 
+        <button class="btn btn-primary" type="submit" name="signUpButton" value="sign-up">Sign-Up</button>
+        <br>
+        <a href="login.php">        
+        <button class="btn btn-primary" type="submit" name="loginButton" value="login">LOGIN</button>
+                      
         </div>
-        <div>
-           
-
-           
-
-            <form id="upload-form" method="POST" enctype="multipart/form-data">
-
-                
-                <input id="upload-form-lable" class="form-label" name="datei" type="file" value="" />
-
-                <br />
-
-                <input id="upload-button"class="btn btn-primary" type="submit" value="UPLOAD" />
-
-
-            </form>
-</div>
-
-
-        <div>
-            <nav id="nav-main">
-        <button class="btn btn-primary" type="submit" name="newestButton" value="newestButton">Neue Bilder</button>
+    <div>
+        <nav id="index-navbar">
+        <button class="btn btn-primary" type="submit" name="newestButton" value="newestButton">Neuste Bilder</button>
         <button class="btn btn-primary" type="submit" name="topTenButton" value="topTenButton">Top 10</button>
         <button class="btn btn-primary" type="submit" name="ownPicsButton" value="ownPicsButton">Eigene Bilder</button>
-     <button class="btn btn-primary" type="submit" name="galleryButton" value="galleryButton">Gallerie</button>
-</nav>
-
+    </nav>
+    </a> 
+    </div>
+    
         </div>
         <div class="container py-2">
       <div
@@ -83,7 +68,7 @@
         data-masonry='{"percentPosition": true }'>
 
         <?php foreach($this->view->pictures as $key =>$value){
-            $img = array('src' => $value['original_path'], 'thumb' => $value['original_path'], 'title' => $value['user_name'], 'id_picture'=>$value['id_pictures']);
+            $img = array('src' => $value['original_path'], 'thumb' => $value['original_path'], 'title' => $value['user_name']);
  
             echo '
                
@@ -93,7 +78,7 @@
                         alt="geit nid..." 
                         loading="lazy"
                         class="img-fluid w-100 zoom-in rounded"
-                        onclick=\'triggerModal('.json_encode($img).', '.json_encode($this->view->likes).')\'
+                        onclick=\'triggerModal('.json_encode($img).')\'
                     />
                     <label>'.$value['user_name'].'</label>
                 </div>
@@ -120,7 +105,6 @@
           </div>
           -->
           <div class="modal-body">
-            
 
           </div>
         </div>
@@ -135,19 +119,38 @@
     ></script>
 
     <script src="./View/commons.js"></script>
-   
-        
 
         
 
-
-
-</body>
-</div>
+        
 
 
 
 
-</body>
 
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

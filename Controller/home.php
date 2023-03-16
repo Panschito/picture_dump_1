@@ -1,12 +1,12 @@
 <?php
-require_once("./Model/main.php");
+require_once("./Model/home.php");
 require_once("./lib/view.php");
-class IndexController{
+class HomeController{
     public $model;
 	public $view;
 
 	function __construct(){
-		$this->model = new MainModel();
+		$this->model = new HomeModel();
 		$this->view =new View();
 		
        
@@ -33,7 +33,7 @@ class IndexController{
         
    
         
-		require_once("./index.php");
+		require_once("./view/home.php");
         
 		
     }
